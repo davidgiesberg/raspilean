@@ -17,5 +17,5 @@ var updateNowPlaying = function () {
 };
 
 var mopidy = new Mopidy();             // Connect to server
-//mopidy.on("event:trackPlaybackStarted", function() { getAndPrintCurrentTrack() });
+mopidy.on("state:online", function() { updateNowPlaying() });
 mopidy.on("event:trackPlaybackStarted", function() { updateNowPlaying() });
